@@ -9,6 +9,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	urlPath string
+)
+
 // pingCmd represents the ping command
 var pingCmd = &cobra.Command{
 	Use:   "ping",
@@ -26,6 +30,7 @@ to quickly create a Cobra application.`,
 
 func init() {
 
+	pingCmd.Flags().StringVarP(&urlPath, "url", "u", "", "The url to ping")
 	// Here you will define your flags and configuration settings.
 
 	NetCmd.AddCommand(pingCmd) //(12:25)

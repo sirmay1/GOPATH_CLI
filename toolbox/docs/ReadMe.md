@@ -1,4 +1,13 @@
 February 20th 2024
+NOTE: GITHUB:
+cd _cli_
+git push
+
+
+Execution Commands:
+
+go build main.go
+go run main.go net
 
 
 
@@ -135,6 +144,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	urlPath string
+)
+
+
 // pingCmd represents the ping command
 var pingCmd = &cobra.Command{
 	Use:   "ping",
@@ -152,6 +166,8 @@ to quickly create a Cobra application.`,
 
 func init() {
 
+    pingCmd.Flags().StringVarP(&urlPath,"url", "u", "", "The url to ping")
+
 	// Here you will define your flags and configuration settings.
 
     NetCmd.addCommand(pingCommand) //(12:25)
@@ -166,5 +182,13 @@ func init() {
 	// pingCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
+Test code in Terminal: (12:00)
+go build main.go
+go run main.go net
+./toolbox net -h
+./toolbox net ping -h
 
 
+
+
+STOP!!! / PAUSED (15:00)
